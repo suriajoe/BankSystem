@@ -1,0 +1,77 @@
+test0 basic account mechanics
+
+
+intial connection
+./server    ./client localhost 52000(any port above 2000)
+ Waiting for new connection...
+ Hello! Welcome to Banky Bank!
+< Please enter command:
+
+
+open account
+client0:
+> open Joe
+< successfully opened account
+< Please enter command: 
+
+start session,debit 50, credit 100, debit 50, balance, finish, exit
+client0:
+> start Joe
+< session started...
+< please enter command:
+> debit 50
+< Not enough funds
+< please enter command:
+> credit 100 
+< Funds added to account
+< please enter command:
+> debit 50 
+< Funds deducted from account
+< please enter command:
+> balance 
+< Current balance: 50.00
+< please enter command:
+> finish
+< ending session
+< Please enter command:
+> exit
+< Thank you!
+< END
+
+
+server: to STDOUT after <= 20 sec  with two accounts
+< ====== Bank Status ======
+< Account #0:
+< Account holder: Joe
+< IN SESSION  
+< Account #1:
+< Account holder: kevin 
+< balance: 0.00
+< ====== END =======
+
+server:
+^c 
+< ...
+starting shutdown procedure...
+Joining threads
+Destroying list...
+Destroying bank...
+Freeing account: #0
+Freeing account: #1
+(and so on and so on)
+
+
+test 1  two client sessions at the same time
+
+Start another client session
+< Found new connection...
+< found node
+< Found 1 nodes
+
+client:
+> givefreemoney
+< Invalid command, please try again
+< Please enter command:
+
+client: enters more than 20 accounts
+< All accounts open, no more free accounts

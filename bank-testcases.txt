@@ -1,0 +1,72 @@
+test0: basic account mechanics
+
+//intital connection
+client side: prints "Hello!"
+server prints "Please enter command
+server side: Waiting for new connection
+             Found new connection 
+
+every 20 second the server will STDOUT
+and print the status, account name, account balance, and IN session
+for all open accounts and in session accounts
+
+if server is not active then client will keep searching for connection and print
+searching for remote connection   every 3 seconds
+
+client side:  open/account "name" 
+client prints: successfully opened account
+server prints initial values 
+
+client side:  close session, and exit socket connection
+ server prints exit messages 
+
+client side:  add acount Joe  (again even though this account exists)
+client prints: "Account already exists, please try again"
+
+client side: start the account session 
+server prints: Session started...
+
+client side: credit 200
+server prints: Funds added to account
+
+client side: debit 200
+server prints: Funds deducted from account
+
+client side: balance 
+server prints: Current balance 100.00  
+server retains all balance information even sessions close
+and even if clients disconnect
+
+client side: finish 
+client prints: Ending session
+server prints: Bank Status
+               Account #0
+               Account holder: Joe
+               balance: 100.00
+
+client side: exit
+server prints: Thank you!
+               END
+
+client side: open kevin
+client prints:sucessfully opened account
+server prints:
+             Account #1: 
+             Account holder: kevin
+             balance: 0.00
+
+client side: enters an invalid command
+server prints: prints the status of all accounts
+client side: Invalid command, please try again
+
+server will not allow client to open a session of an
+already IN SESSION account
+
+server will not allow to start a session if the account was not open
+
+close session in first client, but keep client shell open
+and then try to open account in second, server will allow this
+
+open new client shell and try to open same account, server will say no
+
+
