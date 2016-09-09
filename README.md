@@ -1,2 +1,1 @@
-# BetterMalloc
 # BankSystem
